@@ -10,6 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/activity_2_text"
+        android:textSize="40sp"
+        android:textColor="@color/black"
+        android:text="activity_2"
         android:gravity="center"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
