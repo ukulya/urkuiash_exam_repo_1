@@ -30,8 +30,7 @@ class Fragment1 : Fragment(R.layout.fragment_1) {
         super.onViewCreated(view, savedInstanceState)
 
         recycler = view.findViewById(R.id.recycler)
-        //val layoutManager = LinearLayoutManager(requireContext())
-        val layoutManager = LinearLayoutManager(activity)
+        val layoutManager = LinearLayoutManager(requireContext())
         adapter = SimpleAdapter {
             listener.onClick(it)
         }

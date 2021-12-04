@@ -3,6 +3,7 @@ package com.example.testapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -39,8 +40,8 @@ class SimpleAdapter(
 
         fun bind(item: Contact) {
             val txt = itemView.findViewById<AppCompatTextView>(R.id.item_text)
-            val btnShow = itemView.findViewById<AppCompatTextView>(R.id.btn_show)
-            txt.text = item.toString()
+            val btnShow = itemView.findViewById<AppCompatButton>(R.id.btn_show)
+            txt.text = item.name
             btnShow.setOnClickListener {
                 click.invoke(item)
 
