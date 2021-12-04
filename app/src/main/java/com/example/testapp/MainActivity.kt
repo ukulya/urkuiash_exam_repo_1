@@ -2,10 +2,6 @@ package com.example.testapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity(), OnFragmentClickListener {
 
@@ -18,14 +14,15 @@ class MainActivity : AppCompatActivity(), OnFragmentClickListener {
             .commit()
     }
 
-    override fun onClick(enteredText: String) {
+    override fun onClick(contact: Contact) {
         val fragment2 = Fragment2()
         val bundle = Bundle()
-        bundle.putString("key", enteredText)
+        bundle.putString("name", contact.name)
+        bundle.putString("phone", contact.phone)
         fragment2.arguments = bundle
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment2)
+            .add(R.id.fragment_container, fragment2)
             .addToBackStack(null)
             .commit()
     }

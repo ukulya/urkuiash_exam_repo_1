@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 class SimpleAdapter(
-    private val click: (pos: Int) -> Unit
+    private val click: (contact: Contact) -> Unit
 ) : RecyclerView.Adapter<SimpleAdapter.ViewHolder>() {
-    private var list = listOf<String>()
+    private val list = mutableListOf<Contact>()
 
-    fun setData(list: List<String>) {
-        this.list = list
+    fun setData(item: Contact) {
+        list.add(item)
         notifyDataSetChanged()
     }
 
@@ -34,14 +34,15 @@ class SimpleAdapter(
 
     class ViewHolder(
         itemView: View,
-        private val click: (pos: Int) -> Unit
+        private val click: (contact: Contact) -> Unit
     ) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: String) { // viewbinding
+        fun bind(item: Contact) {
             val txt = itemView.findViewById<AppCompatTextView>(R.id.item_text)
-            txt.text = item
-            itemView.setOnClickListener {
-                click.invoke(bindingAdapterPosition)
+            val btnShow = itemView.findViewById<AppCompatTextView>(R.id.btn_show)
+            txt.text = item.toString()
+            btnShow.setOnClickListener {
+                click.invoke(item)
 
             }
         }
